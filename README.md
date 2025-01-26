@@ -32,7 +32,7 @@ Before you begin, ensure you have the following installed:
 1. Clone the repository:
 ```bash
 git clone https://github.com/nikhil-200311/QuestSearch.git
-cd QuestSearch
+cd quest-search
 ```
 
 2. Install the required dependencies:
@@ -55,3 +55,10 @@ nodemon backend/server.js
 ```
 
 This will start both the frontend and backend servers. Make sure that both are running simultaneously to ensure full functionality.
+
+---
+
+This should now be a comprehensive `README.md` for your project, covering the important aspects such as the known bug, installation steps, and how to start the project. Let me know if you need any more details!
+
+
+
