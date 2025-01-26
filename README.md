@@ -54,9 +54,6 @@ nodemon frontend/server.js
 nodemon backend/server.js
 ```
 
-This will start both the frontend and backend servers. Make sure that both are running simultaneously to ensure full functionality.
-
----
 
 This should now be a comprehensive `README.md` for your project, covering the important aspects such as the known bug, installation steps, and how to start the project. Let me know if you need any more details!
 
