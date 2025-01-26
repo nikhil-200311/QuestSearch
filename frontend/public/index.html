@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>QuestSearch</title>
+    <link
+      href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css"
+      rel="stylesheet"
+    />
+    <style>
+      .question-details {
+        max-height: 0;
+        overflow: hidden;
+        transition: max-height 0.3s ease-out;
+      }
+      .question-details.show {
+        max-height: 500px;
+      }
+    </style>
+  </head>
+  <body class="bg-gray-100">
+    <div class="container mx-auto px-4 py-8">
+      <h1 class="text-4xl font-bold mb-8 text-center text-blue-600">
+        QuestSearch
+      </h1>
+      <div class="mb-8">
+        <input
+          type="text"
+          id="searchInput"
+          placeholder="Search questions (min 5 characters)..."
+          class="w-full p-4 rounded-lg border-2 border-blue-300 focus:border-blue-500 focus:outline-none"
+        />
+      </div>
+      <ul id="results" class="space-y-4"></ul>
+      <div id="pagination" class="mt-8 flex justify-center space-x-2"></div>
+    </div>
+
+    <script>
+      const searchInput = document.getElementById("searchInput");
+      const resultsContainer = document.getElementById("results");
+      const paginationContainer = document.getElementById("pagination");
+      let currentPage = 1;
+      let totalPages = 1;
+
+      function debounce(func, wait) {
+        let timeout;
+        return function executedFunction(...args) {
+          const later = () => {
+            clearTimeout(timeout);
+            func(...args);
+          };
+          clearTimeout(timeout);
+          timeout = setTimeout(later, wait);
+        };
+      }
+
+      const debouncedSearch = debounce(() => {
+        if (searchInput.value.length >= 5) {
+          currentPage = 1;
+          search();
+        } else {
+          resultsContainer.innerHTML = "";
+          paginationContainer.innerHTML = "";
+        }
+      }, 300);
+
+      searchInput.addEventListener("input", debouncedSearch);
+
+      function search() {
+        const query = searchInput.value.trim();
+        if (query.length < 5) return;
+
+        fetch("/search", {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/x-www-form-urlencoded",
+          },
+          body: `query=${encodeURIComponent(query)}&page=${currentPage}`,
+        })
+          .then((response) => response.json())
+          .then((data) => {
+            console.log("Frontend search response:", data);
+            displayResults(data.questions);
+            updatePagination(data.totalResults);
+          })
+          .catch((error) => {
+            console.error("Error:", error);
+            resultsContainer.innerHTML =
+              '<li class="text-red-500">An error occurred while searching</li>';
+          });
+      }
+
+      function displayResults(questions) {
+        resultsContainer.innerHTML = questions
+          .map(
+            (q) => `
+            <li class="bg-white rounded-lg shadow-md overflow-hidden mb-4">
+                <div class="p-4 cursor-pointer flex justify-between items-center" onclick="toggleDetails(this)">
+                    <div>
+                        <span class="font-semibold text-blue-600">${
+                          q.type || "Unknown"
+                        }</span>
+                        <p class="mt-1">${q.title || "No title"}</p>
+                    </div>
+                    <svg class="w-6 h-6 text-gray-500 transform transition-transform duration-200" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path>
+                    </svg>
+                </div>
+                <div class="question-details bg-gray-50 p-8 border-t" style="display: none;">
+                    ${
+                      Array.isArray(q.options) && q.options.length > 0
+                        ? `
+                        <p class="font-semibold mb-2">Options:</p>
+                        <ul class="list-disc pl-5 mb-2">
+                            ${q.options
+                              .map((option) => `<li>${option}</li>`)
+                              .join("")}
+                        </ul>
+                    `
+                        : ""
+                    }
+                    <p class="font-semibold">Correct Answer: <span class="text-green-600">${
+                      q.correctAnswer || "Not specified"
+                    }</span></p>
+                </div>
+            </li>
+        `
+          )
+          .join("");
+        console.log("Rendered questions:", questions);
+      }
+
+      function toggleDetails(element) {
+        const details = element.nextElementSibling;
+        const arrow = element.querySelector("svg");
+        if (details.style.display === "none") {
+          details.style.display = "block";
+          arrow.classList.add("rotate-180");
+        } else {
+          details.style.display = "none";
+          arrow.classList.remove("rotate-180");
+        }
+      }
+
+      function updatePagination(totalResults) {
+        totalPages = Math.ceil(totalResults / 10);
+        paginationContainer.innerHTML = "";
+
+        if (currentPage > 1) {
+          addPaginationButton("Previous", currentPage - 1);
+        }
+
+        for (
+          let i = Math.max(1, currentPage - 2);
+          i <= Math.min(totalPages, currentPage + 2);
+          i++
+        ) {
+          addPaginationButton(i, i, i === currentPage);
+        }
+
+        if (currentPage < totalPages) {
+          addPaginationButton("Next", currentPage + 1);
+        }
+      }
+
+      function addPaginationButton(text, page, isActive = false) {
+        const button = document.createElement("button");
+        button.textContent = text;
+        button.classList.add("px-4", "py-2", "rounded", "focus:outline-none");
+        if (isActive) {
+          button.classList.add("bg-blue-500", "text-white");
+        } else {
+          button.classList.add(
+            "bg-white",
+            "text-blue-500",
+            "hover:bg-blue-100"
+          );
+        }
+        button.addEventListener("click", () => {
+          currentPage = page;
+          search();
+        });
+        paginationContainer.appendChild(button);
+      }
+    </script>
+  </body>
+</html>

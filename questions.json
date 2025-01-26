@@ -1,0 +1,226 @@
+[
+    {
+        "type": "multiple-choice",
+        "title": "Which programming language is used for iOS app development?",
+        "options": ["Java", "Swift", "Python", "C++"],
+        "correctAnswer": "Swift"
+    },
+    {
+        "type": "multiple-choice",
+        "title": "Which data structure is used to implement a queue?",
+        "options": ["Array", "Linked List", "Stack", "Heap"],
+        "correctAnswer": "Linked List"
+    },
+    {
+        "type": "multiple-choice",
+        "title": "What does HTTP stand for?",
+        "options": ["HyperText Markup Protocol", "HyperText Transfer Protocol", "Hyper Transfer Text Protocol", "HyperText Type Protocol"],
+        "correctAnswer": "HyperText Transfer Protocol"
+    },
+    {
+        "type": "multiple-choice",
+        "title": "Which algorithm is used to find the shortest path in a graph?",
+        "options": ["Dijkstra's Algorithm", "Merge Sort", "Binary Search", "Quick Sort"],
+        "correctAnswer": "Dijkstra's Algorithm"
+    },
+    {
+        "type": "multiple-choice",
+        "title": "What is the time complexity of binary search?",
+        "options": ["O(n)", "O(log n)", "O(n^2)", "O(1)"],
+        "correctAnswer": "O(log n)"
+    },
+    {
+        "type": "true-false",
+        "title": "A stack is a Last-In-First-Out (LIFO) data structure.",
+        "correctAnswer": true
+    },
+    {
+        "type": "true-false",
+        "title": "The Internet and the World Wide Web are the same thing.",
+        "correctAnswer": false
+    },
+    {
+        "type": "true-false",
+        "title": "In object-oriented programming, a class is a blueprint for creating objects.",
+        "correctAnswer": true
+    },
+    {
+        "type": "true-false",
+        "title": "A hash table allows fast access to data with the help of a hashing function.",
+        "correctAnswer": true
+    },
+    {
+        "type": "multiple-choice",
+        "title": "What is the purpose of a compiler?",
+        "options": ["To execute the program line by line", "To translate high-level code into machine code", "To format the code", "To optimize the code"],
+        "correctAnswer": "To translate high-level code into machine code"
+    },
+    {
+        "type": "multiple-choice",
+        "title": "Which of the following is a valid data type in Java?",
+        "options": ["int", "boolean", "String", "All of the above"],
+        "correctAnswer": "All of the above"
+    },
+    {
+        "type": "multiple-choice",
+        "title": "What does SQL stand for?",
+        "options": ["Structured Query Language", "Simple Query Language", "Structured Quick Language", "Simple Query Log"],
+        "correctAnswer": "Structured Query Language"
+    },
+    {
+        "type": "multiple-choice",
+        "title": "What is the correct syntax to create a function in Python?",
+        "options": ["function myFunction()", "def myFunction():", "create myFunction()", "func myFunction()"],
+        "correctAnswer": "def myFunction():"
+    },
+    {
+        "type": "true-false",
+        "title": "The term 'Big O' refers to the time complexity of an algorithm.",
+        "correctAnswer": true
+    },
+    {
+        "type": "true-false",
+        "title": "A linked list is a collection of elements that are not stored in contiguous memory locations.",
+        "correctAnswer": true
+    },
+    {
+        "type": "multiple-choice",
+        "title": "Which of the following is not a valid HTTP method?",
+        "options": ["GET", "POST", "FETCH", "DELETE"],
+        "correctAnswer": "FETCH"
+    },
+    {
+        "type": "multiple-choice",
+        "title": "What is the purpose of an operating system?",
+        "options": ["To provide a user interface", "To manage hardware resources", "To execute programs", "All of the above"],
+        "correctAnswer": "All of the above"
+    },
+    {
+        "type": "multiple-choice",
+        "title": "What is the primary use of the 'git' version control system?",
+        "options": ["To compile code", "To manage files", "To track changes in source code", "To create databases"],
+        "correctAnswer": "To track changes in source code"
+    },
+    {
+        "type": "multiple-choice",
+        "title": "Which algorithm is commonly used for sorting data?",
+        "options": ["Quick Sort", "Binary Search", "Linear Search", "Depth-First Search"],
+        "correctAnswer": "Quick Sort"
+    },
+    {
+        "type": "true-false",
+        "title": "Python is a statically typed language.",
+        "correctAnswer": false
+    },
+    {
+        "type": "true-false",
+        "title": "In HTML, the <div> tag is used to define a division or section in a document.",
+        "correctAnswer": true
+    },
+    {
+        "type": "multiple-choice",
+        "title": "Which of the following is a high-level programming language?",
+        "options": ["Assembly", "Python", "Machine Language", "All of the above"],
+        "correctAnswer": "Python"
+    },
+    {
+        "type": "multiple-choice",
+        "title": "What is the main purpose of a database management system (DBMS)?",
+        "options": ["To create databases", "To manage databases", "To organize data into tables", "To execute queries"],
+        "correctAnswer": "To manage databases"
+    },
+    {
+        "type": "true-false",
+        "title": "In Python, the 'len()' function is used to find the length of a list.",
+        "correctAnswer": true
+    },
+    {
+        "type": "multiple-choice",
+        "title": "What is the term used for a network of computers connected to share resources?",
+        "options": ["LAN", "WAN", "VPN", "URL"],
+        "correctAnswer": "LAN"
+    },
+    {
+        "type": "true-false",
+        "title": "Cloud computing allows users to access software and hardware resources over the internet.",
+        "correctAnswer": true
+    },
+    {
+        "type": "multiple-choice",
+        "title": "Which of the following is a popular web development framework for Python?",
+        "options": ["Flask", "Angular", "React", "Vue"],
+        "correctAnswer": "Flask"
+    },
+    {
+        "type": "multiple-choice",
+        "title": "Which of these is the correct syntax for a comment in Java?",
+        "options": ["# This is a comment", "// This is a comment", "/* This is a comment */", "// comment"],
+        "correctAnswer": "// This is a comment"
+    },
+    {
+        "type": "true-false",
+        "title": "An API is an Application Programming Interface.",
+        "correctAnswer": true
+    },
+    {
+        "type": "true-false",
+        "title": "The 'SELECT' statement in SQL is used to delete records from a table.",
+        "correctAnswer": false
+    },
+    {
+        "type": "true-false",
+        "title": "A regular expression is used to define search patterns in text.",
+        "correctAnswer": true
+    },
+    {
+        "type": "multiple-choice",
+        "title": "Which data structure is used for implementing recursion?",
+        "options": ["Array", "Queue", "Stack", "Linked List"],
+        "correctAnswer": "Stack"
+    },
+    {
+        "type": "multiple-choice",
+        "title": "Which language is primarily used for Android development?",
+        "options": ["Swift", "C#", "Java", "Ruby"],
+        "correctAnswer": "Java"
+    },
+    {
+        "type": "multiple-choice",
+        "title": "Which of the following is not an operating system?",
+        "options": ["Windows", "Linux", "Android", "Java"],
+        "correctAnswer": "Java"
+    },
+    {
+        "type": "true-false",
+        "title": "A constructor is used to initialize an object in object-oriented programming.",
+        "correctAnswer": true
+    },
+    {
+        "type": "true-false",
+        "title": "An IP address is used to uniquely identify a device on a network.",
+        "correctAnswer": true
+    },
+    {
+        "type": "multiple-choice",
+        "title": "What does the term 'Cloud Computing' refer to?",
+        "options": ["Computing using cloud storage", "Accessing software and hardware resources over the internet", "A type of local computing", "None of the above"],
+        "correctAnswer": "Accessing software and hardware resources over the internet"
+    },
+    {
+        "type": "multiple-choice",
+        "title": "Which language is primarily used for web front-end development?",
+        "options": ["Python", "Java", "JavaScript", "C++"],
+        "correctAnswer": "JavaScript"
+    },
+    {
+        "type": "true-false",
+        "title": "In object-oriented programming, polymorphism allows one interface to be used for different data types.",
+        "correctAnswer": true
+    },
+    {
+        "type": "multiple-choice",
+        "title": "Which of the following is an example of a relational database management system (RDBMS)?",
+        "options": ["MongoDB", "MySQL", "Redis", "Cassandra"],
+        "correctAnswer": "MySQL"
+    }
+]
