@@ -1,14 +1,12 @@
-const grpc = require("@grpc/grpc-js");
-const protoLoader = require("@grpc/proto-loader");
-const { MongoClient } = require("mongodb");
+const grpc = require("@grpc/grpc-js")
+const protoLoader = require("@grpc/proto-loader")
+const { MongoClient, ObjectId } = require("mongodb")
 
-const PROTO_PATH = __dirname + "/../proto/search.proto";
-const packageDefinition = protoLoader.loadSync(PROTO_PATH);
-const searchProto = grpc.loadPackageDefinition(packageDefinition).search;
-
-const mongoUrl = `mongodb+srv://QuestSearch:QuestSearch@cluster0.blinp.mongodb.net/questionsDB?retryWrites=true&w=majority&appName=Cluster0`;
+const PROTO_PATH = __dirname + "/../proto/search.proto"
+const packageDefinition = protoLoader.loadSync(PROTO_PATH)
+const searchProto = grpc.loadPackageDefinition(packageDefinition).search
+const mongoUrl = "mongodb://127.0.0.1:27017"; 
 const dbName = "questionsDB";
-
 let questionsCollection
 
 async function connectToMongo() {
@@ -48,15 +46,18 @@ async function search(call, callback) {
     const response = {
       questions: questions.map((q) => ({
         id: q._id.toString(),
-        type: q.type || "Unknown",
-        title: q.title || "No title",
-        options: q.options || [],
-        correctAnswer: q.correctAnswer || "Not specified",
+        type: q.type,
+        title: q.title,
+        anagramType: q.anagramType,
+        blocks: q.blocks,
+        solution: q.solution,
+        options: q.options,
+        siblingId: q.siblingId ? q.siblingId.toString() : null,
       })),
       totalResults,
     }
 
-    console.log("Backend Response:", JSON.stringify(response, null, 2)) 
+    console.log("Backend Response:", JSON.stringify(response, null, 2))
 
     callback(null, response)
   } catch (error) {
@@ -79,3 +80,4 @@ function main() {
 }
 
 connectToMongo().then(main)
+

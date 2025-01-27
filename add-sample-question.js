@@ -1,8 +1,8 @@
 const { MongoClient } = require("mongodb");
 
 
-const mongoUrl = `mongodb+srv://QuestSearch:QuestSearch@cluster0.blinp.mongodb.net/questionsDB?retryWrites=true&w=majority&appName=Cluster0`
-const dbName = "questionsDB" 
+const mongoUrl = "mongodb://127.0.0.1:27017"; 
+const dbName = "questionsDB"; 
 
 async function addSampleQuestion() {
   const client = new MongoClient(mongoUrl);

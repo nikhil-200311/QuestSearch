@@ -12,10 +12,26 @@ message SearchRequest {
   int32 pageSize = 3;
 }
 
+message Block {
+  string text = 1;
+  bool showInOption = 2;
+  bool isAnswer = 3;
+}
+
+message Option {
+  string text = 1;
+  bool isCorrectAnswer = 2;
+}
+
 message Question {
   string id = 1;
   string type = 2;
   string title = 3;
+  string anagramType = 4;
+  repeated Block blocks = 5;
+  string solution = 6;
+  repeated Option options = 7;
+  string siblingId = 8;
 }
 
 message SearchResponse {
